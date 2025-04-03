@@ -31,5 +31,5 @@ export class UserModel {
     permissions: string 
 
     @Field()
-    Person: string
+    person: string
 }
