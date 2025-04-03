@@ -1,0 +1,33 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type userModel {
+  id: String!
+  userName: String!
+  email: String!
+  password: String!
+  role: String!
+  timeZone: String!
+  lastLogin: String!
+  language: String!
+  permissions: String!
+  Person: String!
+}
+
+type Query {
+  users: [userModel!]!
+  user(id: Int!): userModel
+}
+
+type Mutation {
+  user(user: userInput!): userModel!
+}
+
+input userInput {
+  id: String
+  userName: String!
+  email: String!
+  password: String!
+  role: String!
+}
