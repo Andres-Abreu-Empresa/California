@@ -31,6 +31,9 @@ export class UserEntity {
     permissions: string 
 
     @Column({ nullable: true })
-    Person: string
+    person: string
+
+    @Column({nullable: true })
+    classR: string 
 }
 

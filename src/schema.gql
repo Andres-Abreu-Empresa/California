@@ -12,7 +12,7 @@ type userModel {
   lastLogin: String!
   language: String!
   permissions: String!
-  Person: String!
+  person: String!
 }
 
 type Query {
