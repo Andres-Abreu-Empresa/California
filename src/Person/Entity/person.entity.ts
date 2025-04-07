@@ -5,7 +5,7 @@ import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 export class PersonEntity {
     
     @PrimaryGeneratedColumn('uuid')
-    idPerson: string 
+    id: string 
 
     @Column()
     firstName: string 
@@ -20,27 +20,24 @@ export class PersonEntity {
     occupation: string 
 
     @Column()
-    user: string 
+    user: string        //Campo para hacer la relacion de user a Person
     
     @Column()
-    gender: string
+    gender: string          //Genero
 
     @Column()
-    identityDocument: number
+    identityDocument: number            //Cedula del usuario
 
     @Column()
-    ssn: number
+    ssn: number         //Numero de seguro 
 
     @Column()
     phoneNumber: number
 
     @Column()
-    EmailPerson: string 
+    emailPerson: string 
 
     @Column()
-    Address: string 
-
-
-
+    address: string         //Direccion de residencia
 
 }
