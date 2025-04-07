@@ -28,14 +28,7 @@ import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin
       playground: false,
       plugins: [ApolloServerPluginLandingPageLocalDefault()],
       context: ({ req }) => ({ request: req }),
-   /* resolvers: {
-        EnumInput: new EnumInput(),
-        LongText: new LongTextInput(),
-        Phone: new PhoneInput(),
-        Time: new TimeInput(),
-        Json: new JsonInput(),
-        DateModel: new DateModel(),
-    },*/
+  
 }),
     UserModule], // Importar el módulo de usuarios
   providers: []
