@@ -8,11 +8,11 @@ type userModel {
   email: String!
   password: String!
   role: String!
-  timeZone: String!
-  lastLogin: String!
-  language: String!
-  permissions: String!
-  person: String!
+  timeZone: String
+  lastLogin: String
+  language: String
+  permissions: String
+  person: String
 }
 
 type Query {
@@ -22,6 +22,7 @@ type Query {
 
 type Mutation {
   user(user: userInput!): userModel!
+  updateUser(user: userInput!): userModel!
 }
 
 input userInput {

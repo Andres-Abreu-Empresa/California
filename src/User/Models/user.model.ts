@@ -18,18 +18,18 @@ export class UserModel {
     @Field()
     role: string
 
-    @Field()
+    @Field({ nullable: true })
     timeZone: string
 
-    @Field()
+    @Field({ nullable: true })
     lastLogin: string
 
-    @Field()
+    @Field({ nullable: true })
     language: string 
 
-    @Field()
+    @Field({ nullable: true })
     permissions: string 
 
-    @Field()
+    @Field({ nullable: true })
     person: string
 }

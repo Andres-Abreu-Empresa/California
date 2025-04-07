@@ -25,6 +25,23 @@ import { UserEntity } from "../Entity/user.entity";
             async createUSer(@Args('user') user: UserInput): Promise<UserEntity> {
             return this.userService.create(user)
             }
+                //Prueba de git 
+
+          /*  @Mutation(() => UserModel, { nullable: true })
+            async updateUser(
+              @Args("id", { type: () => String }) id: string,
+              @Args("userName", { nullable: true }) name?: string,
+              @Args("email", { nullable: true }) email?: string
+            ): Promise<UserModel | null> {
+              return this.userService.updateUser(id, name, email);
+            }
+            */
+
+
+            @Mutation(() => UserModel)
+            updateUser(@Args('user') user: UserInput): Promise<UserEntity> {
+               return this.userService.update(user)
+            }
 
         }
 
