@@ -3,7 +3,7 @@ import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 @Entity("person")
 
 export class PersonEntity {
-    
+
     @PrimaryGeneratedColumn('uuid')
     id: string 
 
@@ -18,9 +18,6 @@ export class PersonEntity {
 
     @Column()
     occupation: string 
-
-    @Column()
-    user: string        //Campo para hacer la relacion de user a Person
     
     @Column()
     gender: string          //Genero
@@ -37,7 +34,7 @@ export class PersonEntity {
     @Column()
     emailPerson: string 
 
-    @Column()
+    @Column({nullable:true})
     address: string         //Direccion de residencia
 
 }

@@ -15,14 +15,37 @@ type userModel {
   person: String
 }
 
+type personModel {
+  id: String!
+  firstName: String!
+  lastName: String!
+  dateOfBirth: DateTime!
+  occupation: String!
+  gender: String!
+  identityDocument: Float
+  ssn: Float
+  phoneNumber: Float!
+  emailPerson: String!
+  address: String
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type Query {
   users: [userModel!]!
   user(id: Int!): userModel
+  persons: [personModel!]!
+  person(id: Int!): personModel
 }
 
 type Mutation {
   user(user: userInput!): userModel!
   updateUser(user: userInput!): userModel!
+  createPerson(person: personInput!): personModel!
+  updatePerson(person: personInput!): personModel!
 }
 
 input userInput {
@@ -31,4 +54,18 @@ input userInput {
   email: String!
   password: String!
   role: String!
+}
+
+input personInput {
+  id: String
+  firstName: String!
+  lastName: String!
+  dateOfBirth: DateTime!
+  occupation: String!
+  gender: String!
+  identityDocument: Float
+  ssn: Float
+  phoneNumber: Float!
+  emailPerson: String!
+  addres: String
 }

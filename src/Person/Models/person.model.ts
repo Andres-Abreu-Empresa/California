@@ -19,9 +19,6 @@ export class PersonModel{
     @Field()
     occupation: string
 
-    @Field({ nullable: true })
-    user: string
-
     @Field()
     gender: string
 
@@ -39,5 +36,4 @@ export class PersonModel{
 
     @Field({ nullable: true })
     address: string
-
 }
