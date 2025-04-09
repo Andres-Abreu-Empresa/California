@@ -21,7 +21,7 @@ export class PersonResolver{
         return this.personService.getPerson(id)
     }
 
-    @Mutation(() => PersonModel, { name: 'person' })
+    @Mutation(() => PersonModel)
     async createPerson(@Args('person') person: PersonInput): Promise<PersonEntity> {
     return this.personService.create(person)
     }

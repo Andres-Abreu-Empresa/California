@@ -1,6 +1,5 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { UserEntity } from "src/User/Entity/user.entity";
 import { Repository } from "typeorm";
 import { PersonEntity } from "../Entity/person.entity";
 import { PersonModel } from "../Models/person.model";
@@ -9,7 +8,7 @@ import { PersonInput } from "../Entity/person.input";
 @Injectable()
 export class PersonService{
     constructor (
-        @InjectRepository(UserEntity)
+        @InjectRepository(PersonEntity)
             private readonly personRepository: Repository<PersonEntity>,            
     ) {}
 
@@ -26,7 +25,7 @@ export class PersonService{
     }
 
     create(person: Partial<PersonEntity>): Promise<PersonEntity> {
-        return this.personRepository.save({ ...person })
+        return this.personRepository.save(person)
     }
 
     update(person: PersonInput) {

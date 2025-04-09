@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
+import { PersonModule } from './Person/person.module';
 
 @Module({
   imports: [
@@ -30,7 +31,7 @@ import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin
       context: ({ req }) => ({ request: req }),
   
 }),
-    UserModule], // Importar el módulo de usuarios
+    UserModule, PersonModule], // Importar el módulo de usuarios
   providers: []
 })
 export class AppModule {}
