@@ -1,46 +1,44 @@
 import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 
-Entity("institution")
-
+@Entity("institution")
 export class InstitutionEntity{
-
     @PrimaryGeneratedColumn('uuid')
-    idInstitution: string
+    id: string
 
     @Column()
-    institucionalName: string 
+    institutionName: string 
 
     @Column()
-    typeImstitution: string
+    typeInstitution: string
 
     @Column()
     educationalLevel: string 
 
-    @Column()
+    @Column({ nullable: true })
     fullAddress: string 
 
     @Column()
     phoneNumber: string 
 
-    @Column()
+    @Column({ nullable: true })
     email: string
 
-    @Column()
+    @Column({ nullable: true })
     webPage: string
 
-    @Column()
+    @Column({ nullable: true })
     dateFounded: string
     
-    @Column()
-    Accreditations: string
+    @Column({ nullable: true })
+    Accreditations: string  //Certificaciones obtenidas por la institucion 
 
-    @Column()
+    @Column({ nullable: true })
     programStudy: string
 
-    @Column()
+    @Column({ nullable: true })
     Director: string
 
-    @Column()
+    @Column({ nullable: true })
     socialMedia: string
 
 }
