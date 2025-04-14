@@ -34,6 +34,8 @@ export class UserEntity {
     person: string
 
     @Column({nullable: true })
-    classR: string 
+    classR: string
+    
+    //Hola
 }
 
