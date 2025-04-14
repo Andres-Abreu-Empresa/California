@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity("user")
 
@@ -6,36 +6,33 @@ export class UserEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string
     
-    @Column()
-    userName: string
+    @Column({ nullable: false })
+    name: string
 
-    @Column()
+    @Column({ nullable: false })
     email: string
 
-    @Column()
-    password: string 
+    @Column({ nullable: false })
+    passwordHash: string;
 
-    @Column()
-    role: string
+    @Column({ type: 'enum', enum: ['professor', 'student'] })
+    role: 'professor' | 'student';
 
-    @Column({ nullable: true })
-    timeZone: string
+    @CreateDateColumn()
+    createdAt: Date;
 
-    @Column({ nullable: true })
-    lastLogin: string
+    @UpdateDateColumn()
+    updatedAt: Date;
 
-    @Column({ nullable: true })
-    language: string 
+  /*
+  @OneToMany(() => Course, course => course.professor)
+  courses: Course[];
 
-    @Column({ nullable: true })
-    permissions: string 
+  @OneToMany(() => StudentCourse, sc => sc.student)
+  enrolledCourses: StudentCourse[];
 
-    @Column({ nullable: true })
-    person: string
-
-    @Column({nullable: true })
-    classR: string
-    
-    //Hola
+  @OneToMany(() => ForumPost, post => post.user)
+  posts: ForumPost[];
+  */ 
 }
 
