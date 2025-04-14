@@ -1,35 +1,42 @@
-import { Field, ObjectType } from "@nestjs/graphql";
+import { Field, ID, ObjectType, registerEnumType } from "@nestjs/graphql";
 
-@ObjectType('userModel')
+export enum UserRole {
+    PROFESSOR = 'professor',
+    STUDENT = 'student',
+  }
+  
+  registerEnumType(UserRole, {
+    name: 'UserRole',
+  });
+  
+  @ObjectType('userModel')
+  export class UserModel {
+  @Field(() => ID)
+  id: string
 
-export class UserModel {
-    @Field()
-    id: string
-    
-    @Field()
-    userName: string
+  @Field()
+  name: string
 
-    @Field()
-    email: string
+  @Field()
+  email: string
 
-    @Field()
-    password: string 
+  @Field()
+  role: string
 
-    @Field()
-    role: string
+  @Field()
+  createdAt: Date
 
-    @Field({ nullable: true })
-    timeZone: string
-
-    @Field({ nullable: true })
-    lastLogin: string
-
-    @Field({ nullable: true })
-    language: string 
-
-    @Field({ nullable: true })
-    permissions: string 
-
-    @Field({ nullable: true })
-    person: string
+  @Field()
+  updatedAt: Date
+    /*
+  
+    @Field(() => [Course], { nullable: true })
+    courses?: Course[];
+  
+    @Field(() => [StudentCourse], { nullable: true })
+    enrolledCourses?: StudentCourse[];
+  
+    @Field(() => [ForumPost], { nullable: true })
+    posts?: ForumPost[];
+    */
 }
