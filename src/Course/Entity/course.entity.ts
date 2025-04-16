@@ -11,7 +11,7 @@ export class CourseEntity {
 
   @Column({ nullable: true })
   description: string;
-/*
+
   @ManyToOne(() => UserEntity, user => user.courses)
   professor: UserEntity;
 

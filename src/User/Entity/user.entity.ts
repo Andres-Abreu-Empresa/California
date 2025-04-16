@@ -1,4 +1,6 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { CourseEntity } from "src/Course/Entity/course.entity";
+import { StudentCourse } from "src/Student-Course/Entity/student-course.entity";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 
 @Entity("user")
 
@@ -24,13 +26,13 @@ export class UserEntity {
     @UpdateDateColumn()
     updatedAt: Date;
 
-  /*
-  @OneToMany(() => Course, course => course.professor)
-  courses: Course[];
+  
+  @OneToMany(() => CourseEntity, course => course.professor)
+  courses: CourseEntity[];
 
   @OneToMany(() => StudentCourse, sc => sc.student)
   enrolledCourses: StudentCourse[];
-
+  /*
   @OneToMany(() => ForumPost, post => post.user)
   posts: ForumPost[];
   */ 
