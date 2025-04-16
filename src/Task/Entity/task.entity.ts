@@ -1,4 +1,5 @@
 import { CourseEntity } from "src/Course/Entity/course.entity";
+import { TaskSubmissionModel } from "src/Task-Submission/Model/task-submission.model";
 import { Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
@@ -6,7 +7,7 @@ export class TaskEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => Course, course => course.tasks)
+  @ManyToOne(() => CourseEntity, course => course.tasks)
   course: CourseEntity;
 
   @Column()
@@ -21,6 +22,6 @@ export class TaskEntity {
   @CreateDateColumn()
   createdAt: Date;
 
-  @OneToMany(() => TaskSubmission, submission => submission.task)
-  submissions: TaskSubmission[];
+  @OneToMany(() => TaskSubmissionModel, submission => submission.task)
+  submissions: TaskSubmissionModel[];
 }
