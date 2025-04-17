@@ -1,7 +1,4 @@
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
-
-
-
 import { CourseService } from '../Service/course.service';
 import { CourseModel } from '../Model/course.model';
 import { CreateCourseInput } from '../Model/create-course.input';

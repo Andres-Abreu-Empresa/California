@@ -6,8 +6,16 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { join } from 'path';
 import { ApolloServerPluginLandingPageLocalDefault } from '@apollo/server/plugin/landingPage/default';
-import { PersonModule } from './Person/person.module';
-import { InstitutionModule } from './Institution/institution.module';
+import { PersonModule } from './Person ----/person.module';
+import { InstitutionModule } from './Institution ----/institution.module';
+import { CourseModule } from './Course/course.module';
+import { ForumPostModule } from './Forum-Post/forum-post.module';
+import { MembershipModule } from './MemberShip/membership.module';
+import { StudentCourseModule } from './Student-Course/student-course.module';
+import { TaskModule } from './Task/task.module';
+import { TaskSubmissionModule } from './Task-Submission/task-submission.module';
+import { UserMembershipModule } from './UserMembership/userMembership.module';
+import { SubmissionModule } from './Submission/submission.module';
 
 @Module({
   imports: [
@@ -32,7 +40,7 @@ import { InstitutionModule } from './Institution/institution.module';
       context: ({ req }) => ({ request: req }),
   
 }),
-    UserModule, PersonModule, InstitutionModule], // Importar el módulo de usuarios
+    UserModule, PersonModule, InstitutionModule, CourseModule, ForumPostModule, MembershipModule, StudentCourseModule, TaskModule, TaskSubmissionModule, UserMembershipModule, SubmissionModule], // Importar el módulo de usuarios
   providers: []
 })
 export class AppModule {}

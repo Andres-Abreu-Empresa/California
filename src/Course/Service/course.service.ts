@@ -1,10 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-
-
-
-
 import { CourseEntity } from '../Entity/course.entity';
 import { CreateCourseInput } from '../Model/create-course.input';
 import { UserEntity } from 'src/User/Entity/user.entity';

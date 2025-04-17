@@ -1,8 +1,15 @@
+import { Field, ID, ObjectType } from "@nestjs/graphql";
+import { ForumPostEntity } from "src/Forum-Post/Entity/forum-post.entity";
+import { StudentCourseEntity } from "src/Student-Course/Entity/student-course.entity";
+import { TaskEntity } from "src/Task/Entity/task.entity";
 import { UserEntity } from "src/User/Entity/user.entity";
 import { Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('course')
+@ObjectType()
 export class CourseEntity {
+
+  @Field(() => ID)
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -18,13 +25,14 @@ export class CourseEntity {
   @CreateDateColumn()
   createdAt: Date;
 
-  @OneToMany(() => StudentCourse, sc => sc.course)
-  studentCourses: StudentCourse[];
+  @OneToMany(() => StudentCourseEntity, sc => sc.course)
+  studentCourses: StudentCourseEntity[];
 
-  @OneToMany(() => Task, task => task.course)
-  tasks: Task[];
+  @OneToMany(() => TaskEntity, task => task.course)
+  tasks: TaskEntity[];
+  
 
-  @OneToMany(() => ForumPost, post => post.course)
-  forumPosts: ForumPost[];
-  */
+  @OneToMany(() => ForumPostEntity, post => post.course)
+  forumPosts: ForumPostEntity[];
+  
 }

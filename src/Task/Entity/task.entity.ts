@@ -1,13 +1,19 @@
-import { CourseEntity } from "src/Course/Entity/course.entity";
-import { TaskSubmissionModel } from "src/Task-Submission/Model/task-submission.model";
-import { Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+// src/Task/Entity/task.entity.ts
 
-@Entity()
+import { Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { CourseEntity } from 'src/Course/Entity/course.entity';
+import { SubmissionEntity } from 'src/Submission/Entity/submission.entity';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
+
+@Entity('task')
+@ObjectType()
 export class TaskEntity {
+
+  @Field(() => ID)
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => CourseEntity, course => course.tasks)
+  @ManyToOne(() => CourseEntity, (course) => course.tasks, { onDelete: 'CASCADE' })
   course: CourseEntity;
 
   @Column()
@@ -22,6 +28,6 @@ export class TaskEntity {
   @CreateDateColumn()
   createdAt: Date;
 
-  @OneToMany(() => TaskSubmissionModel, submission => submission.task)
-  submissions: TaskSubmissionModel[];
+  @OneToMany(() => SubmissionEntity, (submission) => submission.task)
+  submissions: SubmissionEntity[];
 }

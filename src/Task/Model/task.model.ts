@@ -1,5 +1,7 @@
 import { Field, ID, ObjectType } from "@nestjs/graphql";
 import { CourseEntity } from "src/Course/Entity/course.entity";
+import { TaskSubmissionModel } from "src/Task-Submission/Model/task-submission.model";
+import { OneToMany } from "typeorm";
 
 @ObjectType()
 export class TaskModel {
@@ -20,4 +22,8 @@ export class TaskModel {
 
   @Field()
   createdAt: Date;
+
+  @OneToMany(() => TaskSubmissionModel, submission => submission.task)
+  submissions: TaskSubmissionModel[];
+
 }

@@ -1,9 +1,13 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany, CreateDateColumn } from 'typeorm';
 import { CourseEntity } from 'src/Course/Entity/course.entity';
 import { UserEntity } from 'src/User/Entity/user.entity';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
   
   @Entity('forumpost')
+  @ObjectType()
   export class ForumPostEntity {
+    
+    @Field(() => ID)
     @PrimaryGeneratedColumn('uuid')
     id: string;
   

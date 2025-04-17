@@ -1,14 +1,16 @@
 import { Field, ID, ObjectType } from "@nestjs/graphql";
 import { TaskEntity } from "src/Task/Entity/task.entity";
+import { TaskModel } from "src/Task/Model/task.model";
 import { UserEntity } from "src/User/Entity/user.entity";
+import { ManyToOne } from "typeorm";
 
 @ObjectType()
 export class TaskSubmissionModel {
   @Field(() => ID)
   id: string;
 
-  @Field(() => TaskEntity)
-  task: TaskEntity;
+  @ManyToOne(() => TaskModel, task => task.submissions)
+  task: TaskModel;
 
   @Field(() => UserEntity)
   student: UserEntity;
@@ -24,4 +26,6 @@ export class TaskSubmissionModel {
 
   @Field()
   submittedAt: Date;
+
+  
 }

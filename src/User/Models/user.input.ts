@@ -1,9 +1,8 @@
 import { Field, ID, InputType } from "@nestjs/graphql";
-import { PrimaryColumn } from "typeorm";
 
 @InputType('userInput')
 export class CreateUserInput {
-    @Field(() => ID)
+    @Field(() => ID, { nullable: true })
   id: string;
 
   @Field()
@@ -11,13 +10,10 @@ export class CreateUserInput {
 
   @Field()
   email: string;
+  
+  @Field({ nullable: true })
+  passwordHash: string;
 
   @Field()
   role: 'professor' | 'student';
-
-  @Field()
-  createdAt: Date;
-
-  @Field()
-  updatedAt: Date;
 }

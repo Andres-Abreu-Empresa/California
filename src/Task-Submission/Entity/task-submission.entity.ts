@@ -1,15 +1,14 @@
-import {
-    Entity,
-    PrimaryGeneratedColumn,
-    Column,
-    ManyToOne,
-  } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, } from 'typeorm';
   
 import { TaskEntity } from 'src/Task/Entity/task.entity';
 import { UserEntity } from 'src/User/Entity/user.entity';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
   
-  @Entity()
+  @Entity('tasksubmission')
+  @ObjectType()
   export class TaskSubmissionEntity {
+
+    @Field(() => ID)
     @PrimaryGeneratedColumn('uuid')
     id: string;
   
