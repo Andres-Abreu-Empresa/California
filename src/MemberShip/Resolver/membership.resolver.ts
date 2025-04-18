@@ -1,24 +1,24 @@
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { MembershipService } from '../Service/membership.service';
-import { MembershipEntity } from '../Entity/membership.entity';
 import { CreateMembershipInput } from '../Models/create-membership.input';
+import { MembershipModel } from '../Models/membership.model';
 
-@Resolver(() => MembershipEntity)
+@Resolver(() => MembershipModel)
 export class MembershipResolver {
   constructor(private readonly membershipService: MembershipService) {}
 
-  @Mutation(() => MembershipEntity)
-  createMembership(@Args('input') input: CreateMembershipInput): Promise<MembershipEntity> {
+  @Mutation(() => MembershipModel)
+  createMembership(@Args('input') input: CreateMembershipInput): Promise<MembershipModel> {
     return this.membershipService.create(input);
   }
 
-  @Query(() => [MembershipEntity])
-  memberships(): Promise<MembershipEntity[]> {
+  @Query(() => [MembershipModel])
+  memberships(): Promise<MembershipModel[]> {
     return this.membershipService.findAll();
   }
 
-  @Query(() => MembershipEntity)
-  membership(@Args('id') id: string): Promise<MembershipEntity> {
+  @Query(() => MembershipModel)
+  membership(@Args('id') id: string): Promise<MembershipModel> {
     return this.membershipService.findOne(id);
   }
 

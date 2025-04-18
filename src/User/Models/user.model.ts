@@ -1,4 +1,7 @@
 import { Field, ID, ObjectType, registerEnumType } from "@nestjs/graphql";
+import { CourseEntity } from "src/Course/Entity/course.entity";
+import { ForumPostEntity } from "src/Forum-Post/Entity/forum-post.entity";
+import { StudentCourseEntity } from "src/Student-Course/Entity/student-course.entity";
 
 export enum UserRole {
     PROFESSOR = 'professor',
@@ -14,29 +17,28 @@ export enum UserRole {
   @Field(() => ID)
   id: string
 
-  @Field()
+  @Field({ nullable: true })
   name: string
 
-  @Field()
+  @Field({ nullable: true  })
   email: string
 
-  @Field()
+  @Field({ nullable: true  })
   role: string
 
-  @Field()
+  @Field({ nullable: true  })
   createdAt: Date
 
-  @Field()
+  @Field({ nullable: true  })
   updatedAt: Date
-    /*
   
-    @Field(() => [Course], { nullable: true })
-    courses?: Course[];
+    @Field(() => [CourseEntity], { nullable: true })
+    courses?: CourseEntity[];
   
-    @Field(() => [StudentCourse], { nullable: true })
-    enrolledCourses?: StudentCourse[];
+    @Field(() => [StudentCourseEntity], { nullable: true })
+    enrolledCourses?: StudentCourseEntity[];
   
-    @Field(() => [ForumPost], { nullable: true })
-    posts?: ForumPost[];
-    */
+    @Field(() => [ForumPostEntity], { nullable: true })
+    posts?: ForumPostEntity[];
+    
 }
